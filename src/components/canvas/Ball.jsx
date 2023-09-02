@@ -5,6 +5,7 @@ import {
   Float,
   OrbitControls,
   Preload,
+  Sphere,
   useTexture,
 } from "@react-three/drei";
 
@@ -18,9 +19,9 @@ const Ball = (props) => {
       <ambientLight intensity={1} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
+        <sphereGeometry attach="geometry" args={[1, 64, 64]} />
         <meshStandardMaterial
-          color='#ededed'
+          color='#F5F5F5'
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading

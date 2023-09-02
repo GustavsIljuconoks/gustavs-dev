@@ -6,10 +6,9 @@ import {
   tailwind,
   git,
   figma,
-  carrent,
-  jobit,
-  tripguide,
   forms,
+  kreics,
+  development,
   threejs,
   maui,
   mysql,
@@ -102,45 +101,41 @@ const projects = [
     source_code_link: "https://github.com/27-Club/27club",
   },
   {
-    name: "Job IT",
+    name: "kreics.com",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      `Portfolio website for filmaker "kreics".`,
     tags: [
       {
-        name: "react",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "Tailwind",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "Firebase",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: kreics,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Battleships",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      `Popular Battleship board game online version. It's still in development.`,
     tags: [
       {
-        name: "nextjs",
+        name: ".NET MAUI",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "C#",
         color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      }
     ],
-    image: tripguide,
+    image: development,
     source_code_link: "https://github.com/",
   },
 ];

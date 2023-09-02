@@ -57,7 +57,7 @@ const Navbar = () => {
     </nav>
 
     {/* mobile nav */}
-      <div className={`mobile-nav ${hamburger ? "open-menu" : "closed-menu"}`}>
+    <div className={`mobile-nav ${hamburger ? "open-menu" : "closed-menu"}`}>
       <span onClick={() => hamburgerMenu()}>
         <img 
           src={close}

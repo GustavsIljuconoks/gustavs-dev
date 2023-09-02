@@ -11,14 +11,13 @@ import javascript from "./tech/javascript.png";
 import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import threejs from "./tech/threejs.svg";
-import maui from "./tech/maui.jpg";
-import mysql from "./tech/mysql.png";
+import maui from "./tech/maui.png";
+import mysql from "./tech/mysql.svg";
 import django from "./tech/django.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import forms from "./lauku_forms.png";
+import kreics from "./kreics.png"
+import development from "./development.gif"
 
 export {
   logo,
@@ -36,8 +35,7 @@ export {
   maui,
   mysql,
   django,
-  carrent,
-  jobit,
-  tripguide,
   forms,
+  kreics,
+  development
 };
