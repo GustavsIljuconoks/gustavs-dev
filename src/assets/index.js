@@ -19,6 +19,8 @@ import forms from "./lauku_forms.png";
 import kreics from "./kreics.png"
 import development from "./development.gif"
 
+import portrait from "./portrait.jpg";
+
 export {
   logo,
   github,
@@ -37,5 +39,6 @@ export {
   django,
   forms,
   kreics,
-  development
+  development,
+  portrait
 };
