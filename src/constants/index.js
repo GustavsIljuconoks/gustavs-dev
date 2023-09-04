@@ -4,7 +4,7 @@ import {
   css,
   reactjs,
   tailwind,
-  git,
+  python,
   figma,
   forms,
   kreics,
@@ -64,8 +64,8 @@ const technologies = [
     icon: mysql,
   },
   {
-    name: "git",
-    icon: git,
+    name: "Python",
+    icon: python,
   },
   {
     name: "MAUI",
@@ -103,7 +103,7 @@ const projects = [
   {
     name: "kreics.com",
     description:
-      `Portfolio website for filmaker "kreics".`,
+      `Portfolio website for filmaker "kreicsfilms". It's still in development.`,
     tags: [
       {
         name: "React",
@@ -119,7 +119,7 @@ const projects = [
       },
     ],
     image: kreics,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/GustavsIljuconoks/kreics.com/",
   },
   {
     name: "Battleships",

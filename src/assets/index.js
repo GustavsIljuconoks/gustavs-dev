@@ -5,7 +5,7 @@ import close from "./close.svg";
 
 import css from "./tech/css.png";
 import figma from "./tech/figma.png";
-import git from "./tech/git.png";
+import python from "./tech/python.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import reactjs from "./tech/reactjs.png";
@@ -28,7 +28,7 @@ export {
   close,
   css,
   figma,
-  git,
+  python,
   html,
   javascript,
   reactjs,
