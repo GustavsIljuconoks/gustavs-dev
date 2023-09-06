@@ -1,10 +1,12 @@
 {
+  "homepage": "https://GustavsIljuconoks.github.io/gustavs-dev/",
   "name": "gustavs.dev",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://gustavsiljuconoks.github.io/gustavs-dev",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
