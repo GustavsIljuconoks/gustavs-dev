@@ -1,21 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
-import { Navbar, Hero, About, Contact, Works, Footer, Tech } from './components';
-import './css/Static.css';
+import LandingPage from "./components/landing";
 
-const App = () => {
-  return (
-    <>
-      <BrowserRouter>
-        <Navbar />
-        <Hero />
-        <About />
-        <Tech />
-        <Works />
-        <Contact />
-        <Footer />
-      </BrowserRouter>
-    </>
-  )
+function App() {
+    return <LandingPage />;
 }
 
-export default App
+export default App;
