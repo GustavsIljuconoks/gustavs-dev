@@ -1,57 +1,52 @@
-const roles = ["Web Developer", "Back-End Amateur", "UI Design Enthusiast"];
-
-const work = [
+const projects = [
     {
         name: "kreics.com",
-        kind: "Creative portfolio",
         desc: "A filmmaker portfolio shaped around visual browsing and simple editing.",
-        stack: ["Next.js", "Strapi"],
         link: "https://kreics.com/",
     },
+];
+
+const experience = [
     {
-        name: "Lauku Forms",
-        kind: "Workflow app",
-        desc: "A Django form builder for practical internal data collection, built for Latvijas Lauku konsultāciju un izglītības centrs.",
-        stack: ["Django", "MySQL", "Bootstrap"],
-        link: "https://github.com/27-Club/27club",
+        name: "Eventavenue",
+        role: "Full-Stack Developer",
+        timeline: "2026–present",
+        link: "https://eventavenue.vercel.app/",
     },
     {
-        name: "Battleships",
-        kind: "Game — in progress",
-        desc: "An online take on the classic board game.",
-        stack: ["C#", "TypeScript"],
-        link: "https://github.com/GustavsIljuconoks/pirate-adventure",
+        name: "Tiec.lv",
+        role: "Full-Stack Developer",
+        timeline: "2025–present",
+        link: "https://tiec.lv/",
+    },
+    {
+        name: "Cube",
+        role: "Junior Programmer",
+        timeline: "2024–2026",
+        link: "https://www.cube.lv/",
     },
 ];
 
 const skills = [
-    {
-        title: "Languages",
-        items: ["JavaScript", "TypeScript", "Python", "C#", "HTML", "CSS"],
-    },
-    {
-        title: "Frameworks & Libraries",
-        items: [
-            "React",
-            "Next.js",
-            "Tailwind",
-            "Django",
-            ".NET MAUI",
-            "Three.js",
-        ],
-    },
-    { title: "Tools", items: ["Figma", "MySQL", "Git"] },
+    "Front-End Development",
+    "Back-End Development",
+    "Product Thinking",
+    "API Design",
+    "AI Agent Development",
+    "RAG Systems",
 ];
 
-const links = [
+const elsewhere = [
     { name: "GitHub", href: "https://github.com/GustavsIljuconoks" },
+    { name: "Cosmos", href: "https://www.cosmos.so/cipis" },
+];
+
+const contactLinks = [
+    { name: "Email", href: "mailto:gustavs.iljuconoks@gmail.com" },
     {
         name: "LinkedIn",
         href: "https://www.linkedin.com/in/gustavs-i%C4%BCju%C4%8Donoks-60559b223/",
     },
-    { name: "Twitter / X", href: "https://x.com/gInTheBuilding" },
-    { name: "Email", href: "mailto:gustavs.iljuconoks@gmail.com" },
-    { name: "Cosmos", href: "https://www.cosmos.so/cipis" },
 ];
 
 function App() {
@@ -64,79 +59,98 @@ function App() {
                     <em>front-end craft</em>, back-end fundamentals, and
                     interfaces that feel considered.
                 </p>
-                <p className="now">
-                    <span className="dot" aria-hidden="true" />
-                    {roles.join(" · ")}
-                </p>
             </header>
 
-            <section className="section" aria-label="Selected work">
-                <p className="label">Work</p>
-                <div className="work">
-                    {work.map((w) => (
-                        <article className="entry" key={w.name}>
-                            <div className="entry-head">
-                                <h3>{w.name}</h3>
-                                <span className="kind">{w.kind}</span>
-                            </div>
-                            <p>{w.desc}</p>
-                            <div className="entry-foot">
-                                <div className="stack">
-                                    {w.stack.map((s) => (
-                                        <span key={s}>{s}</span>
-                                    ))}
-                                </div>
+            <div className="columns">
+                <section className="col" id="work" aria-label="Work">
+                    <p className="label">Work</p>
+                    {experience.map((r) => (
+                        <article className="col-entry" key={r.name}>
+                            <p className="meta">{r.timeline}</p>
+                            <h3>{r.role}</h3>
+                            <p className="desc">
+                                <a
+                                    href={r.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {r.name}
+                                </a>
+                            </p>
+                        </article>
+                    ))}
+                </section>
+
+                <section className="col" id="skills" aria-label="Skills">
+                    <p className="label">Skills</p>
+                    <ul className="skill-list">
+                        {skills.map((s) => (
+                            <li key={s}>{s}</li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="col" id="projects" aria-label="Projects">
+                    <p className="label">Projects</p>
+                    {projects.map((w) => (
+                        <article className="col-entry" key={w.name}>
+                            <p className="meta">{w.kind}</p>
+                            <h3>
                                 <a
                                     href={w.link}
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    View
+                                    {w.name}
                                 </a>
-                            </div>
+                            </h3>
+                            <p className="desc">{w.desc}</p>
                         </article>
                     ))}
-                </div>
-            </section>
-
-            <section className="section" aria-label="Skills">
-                <p className="label">Skills</p>
-                <div>
-                    {skills.map((group) => (
-                        <div className="skill-group" key={group.title}>
-                            <h4>{group.title}</h4>
-                            <p>{group.items.join(", ")}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="section" aria-label="Links">
-                <p className="label">Elsewhere</p>
-                <div className="links">
-                    {links.map((l) => (
-                        <a
-                            key={l.name}
-                            href={l.href}
-                            target={
-                                l.href.startsWith("mailto:")
-                                    ? undefined
-                                    : "_blank"
-                            }
-                            rel="noreferrer"
-                        >
-                            {l.name}
-                            <span className="arrow" aria-hidden="true">
-                                ↗
-                            </span>
+                    <p className="cta-note">
+                        Got a project in mind?{" "}
+                        <a href="mailto:gustavs.iljuconoks@gmail.com">
+                            Let&rsquo;s talk
                         </a>
-                    ))}
-                </div>
-            </section>
+                        .
+                    </p>
+                </section>
+            </div>
 
-            <footer className="colophon">
-                © {new Date().getFullYear()} Gustavs Iļjučonoks — built with
-                React, set in Fraunces, Space Grotesk & Space Mono.
+            <footer className="footer">
+                <div className="columns footer-columns">
+                    <div className="col">
+                        <p className="label">Contact</p>
+                        <ul className="footer-list">
+                            {contactLinks.map((l) => (
+                                <li key={l.name}>
+                                    <a
+                                        href={l.href}
+                                        target={
+                                            l.href.startsWith("mailto:")
+                                                ? undefined
+                                                : "_blank"
+                                        }
+                                        rel="noreferrer"
+                                    >
+                                        {l.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="col">
+                        <p className="label">Elsewhere</p>
+                        <ul className="footer-list">
+                            {elsewhere.map((l) => (
+                                <li key={l.name}>
+                                    <a href={l.href}>{l.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </footer>
         </main>
     );
