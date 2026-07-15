@@ -1,3 +1,45 @@
+import { useEffect, useRef } from "react";
+
+function useCursorWash() {
+    const target = useRef({ x: 0, y: 0 });
+    const current = useRef({ x: 0, y: 0 });
+    const frame = useRef(null);
+
+    useEffect(() => {
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (reduceMotion) return;
+
+        const root = document.documentElement;
+
+        const handlePointerMove = (e) => {
+            target.current = {
+                x: e.clientX / window.innerWidth - 0.5,
+                y: e.clientY / window.innerHeight - 0.5,
+            };
+        };
+
+        const tick = () => {
+            current.current.x +=
+                (target.current.x - current.current.x) * 0.05;
+            current.current.y +=
+                (target.current.y - current.current.y) * 0.05;
+            root.style.setProperty("--mx", current.current.x.toFixed(4));
+            root.style.setProperty("--my", current.current.y.toFixed(4));
+            frame.current = requestAnimationFrame(tick);
+        };
+
+        window.addEventListener("pointermove", handlePointerMove);
+        frame.current = requestAnimationFrame(tick);
+
+        return () => {
+            window.removeEventListener("pointermove", handlePointerMove);
+            cancelAnimationFrame(frame.current);
+        };
+    }, []);
+}
+
 const projects = [
     {
         name: "kreics.com",
@@ -50,6 +92,8 @@ const contactLinks = [
 ];
 
 function App() {
+    useCursorWash();
+
     return (
         <main className="page">
             <header className="masthead">
@@ -88,6 +132,15 @@ function App() {
                             <li key={s}>{s}</li>
                         ))}
                     </ul>
+
+                    <p className="label col-secondary-label">Elsewhere</p>
+                    <ul className="footer-list">
+                        {elsewhere.map((l) => (
+                            <li key={l.name}>
+                                <a href={l.href}>{l.name}</a>
+                            </li>
+                        ))}
+                    </ul>
                 </section>
 
                 <section className="col" id="projects" aria-label="Projects">
@@ -118,38 +171,25 @@ function App() {
             </div>
 
             <footer className="footer">
-                <div className="columns footer-columns">
-                    <div className="col">
-                        <p className="label">Contact</p>
-                        <ul className="footer-list">
-                            {contactLinks.map((l) => (
-                                <li key={l.name}>
-                                    <a
-                                        href={l.href}
-                                        target={
-                                            l.href.startsWith("mailto:")
-                                                ? undefined
-                                                : "_blank"
-                                        }
-                                        rel="noreferrer"
-                                    >
-                                        {l.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="col">
-                        <p className="label">Elsewhere</p>
-                        <ul className="footer-list">
-                            {elsewhere.map((l) => (
-                                <li key={l.name}>
-                                    <a href={l.href}>{l.name}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className="col">
+                    <p className="label">Contact</p>
+                    <ul className="footer-list">
+                        {contactLinks.map((l) => (
+                            <li key={l.name}>
+                                <a
+                                    href={l.href}
+                                    target={
+                                        l.href.startsWith("mailto:")
+                                            ? undefined
+                                            : "_blank"
+                                    }
+                                    rel="noreferrer"
+                                >
+                                    {l.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </footer>
         </main>

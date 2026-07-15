@@ -20,6 +20,10 @@
     --orb-4: rgba(156, 52, 201, 0.4); /* mid orchid */
     --wash-blend: multiply;
 
+    /* cursor-driven wash offset, updated in JS, range roughly -0.5..0.5 */
+    --mx: 0;
+    --my: 0;
+
     /* type */
     --font-display: "Fraunces", Georgia, "Times New Roman", serif;
     --font-body: "Space Grotesk", "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -117,14 +121,35 @@ img {
     z-index: -1;
     background-color: var(--color-bg);
     background-image: radial-gradient(
-            circle at 8% 2%,
+            circle at calc(8% + var(--mx) * -8%) calc(2% + var(--my) * -8%),
             var(--orb-1),
             transparent 40%
-        ), radial-gradient(circle at 60% 15%, var(--orb-2), transparent 35%),
-        radial-gradient(circle at 85% 45%, var(--orb-3), transparent 40%),
-        radial-gradient(circle at 15% 60%, var(--orb-4), transparent 35%),
-        radial-gradient(circle at 70% 80%, var(--orb-2), transparent 35%),
-        radial-gradient(circle at 25% 98%, var(--orb-1), transparent 40%);
+        ),
+        radial-gradient(
+            circle at calc(60% + var(--mx) * 10%) calc(15% + var(--my) * 6%),
+            var(--orb-2),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at calc(85% + var(--mx) * -6%) calc(45% + var(--my) * 9%),
+            var(--orb-3),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at calc(15% + var(--mx) * 7%) calc(60% + var(--my) * -7%),
+            var(--orb-4),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at calc(70% + var(--mx) * -9%) calc(80% + var(--my) * 5%),
+            var(--orb-2),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at calc(25% + var(--mx) * 6%) calc(98% + var(--my) * -6%),
+            var(--orb-1),
+            transparent 40%
+        );
     background-blend-mode: var(--wash-blend);
 }
 
@@ -191,10 +216,6 @@ img {
     padding-top: var(--space-l);
     border-top: var(--hairline);
     margin-top: var(--space-l);
-}
-
-.footer-columns {
-    grid-template-columns: repeat(2, 1fr);
 }
 
 .col > .label {
@@ -282,9 +303,13 @@ img {
     font-size: 0.9rem;
 }
 
-.footer .columns {
+.footer .col {
+    padding-top: var(--space-l);
     border-top: var(--hairline);
-    margin-top: 0;
+}
+
+.col .col-secondary-label {
+    margin-top: var(--space-xl);
 }
 
 .footer-list {
@@ -309,8 +334,7 @@ img {
 /* ---- responsive ---- */
 
 @media (max-width: 1100px) {
-    .columns,
-    .footer-columns {
+    .columns {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -320,8 +344,7 @@ img {
         padding-block: var(--space-xl);
     }
 
-    .columns,
-    .footer-columns {
+    .columns {
         grid-template-columns: 1fr;
         gap: var(--space-l);
     }
