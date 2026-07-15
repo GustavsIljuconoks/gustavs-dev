@@ -303,13 +303,9 @@ img {
     font-size: 0.9rem;
 }
 
-.footer .col {
-    padding-top: var(--space-l);
+.footer .columns {
     border-top: var(--hairline);
-}
-
-.col .col-secondary-label {
-    margin-top: var(--space-xl);
+    margin-top: 0;
 }
 
 .footer-list {

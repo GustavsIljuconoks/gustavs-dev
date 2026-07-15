@@ -132,15 +132,6 @@ function App() {
                             <li key={s}>{s}</li>
                         ))}
                     </ul>
-
-                    <p className="label col-secondary-label">Elsewhere</p>
-                    <ul className="footer-list">
-                        {elsewhere.map((l) => (
-                            <li key={l.name}>
-                                <a href={l.href}>{l.name}</a>
-                            </li>
-                        ))}
-                    </ul>
                 </section>
 
                 <section className="col" id="projects" aria-label="Projects">
@@ -171,25 +162,38 @@ function App() {
             </div>
 
             <footer className="footer">
-                <div className="col">
-                    <p className="label">Contact</p>
-                    <ul className="footer-list">
-                        {contactLinks.map((l) => (
-                            <li key={l.name}>
-                                <a
-                                    href={l.href}
-                                    target={
-                                        l.href.startsWith("mailto:")
-                                            ? undefined
-                                            : "_blank"
-                                    }
-                                    rel="noreferrer"
-                                >
-                                    {l.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="columns">
+                    <div className="col">
+                        <p className="label">Contact</p>
+                        <ul className="footer-list">
+                            {contactLinks.map((l) => (
+                                <li key={l.name}>
+                                    <a
+                                        href={l.href}
+                                        target={
+                                            l.href.startsWith("mailto:")
+                                                ? undefined
+                                                : "_blank"
+                                        }
+                                        rel="noreferrer"
+                                    >
+                                        {l.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="col">
+                        <p className="label">Elsewhere</p>
+                        <ul className="footer-list">
+                            {elsewhere.map((l) => (
+                                <li key={l.name}>
+                                    <a href={l.href}>{l.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </footer>
         </main>
