@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Space+Grotesk:wght@400;500&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Space+Grotesk:wght@400;500&display=swap");
 
 /* ---------------------------------------------------------------
    Two colours, inverted for dark mode. Nothing else.
@@ -26,8 +26,14 @@
 
     /* type */
     --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    /* Focal-like grotesque for the hero heading + small labels
+       (replaces the former mono; the --font-mono name is kept so the
+       label/meta/chip rules don't all need editing) */
+    --font-heading: "Bricolage Grotesque", "Space Grotesk", "Helvetica Neue",
+        Arial, sans-serif;
     --font-body: "Space Grotesk", "Inter", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "Space Mono", "Courier New", monospace;
+    --font-mono: "Bricolage Grotesque", "Space Grotesk", "Helvetica Neue", Arial,
+        sans-serif;
 
     /* spacing scale */
     --space-2xs: 0.5rem;
@@ -171,11 +177,11 @@ img {
 
 .masthead h1 {
     margin: 0;
-    font-family: var(--font-display);
-    font-weight: 400;
+    font-family: var(--font-heading);
+    font-weight: 700;
     font-size: clamp(3rem, 9vw, 6.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
+    line-height: 0.9;
+    letter-spacing: 0.005em;
 }
 
 .lede {
